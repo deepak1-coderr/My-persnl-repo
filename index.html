@@ -279,7 +279,7 @@
     if (pinInput.value === correctPin) {
       setFailCount(0);
       localStorage.removeItem('pin-lock-until');
-      sessionStorage.setItem('gallery-unlocked', 'true');
+      //sessionStorage.setItem('gallery-unlocked', 'true');
       unlockGallery();
       return;
     }
@@ -307,15 +307,11 @@
     lockScreen.classList.add('hidden');
     document.body.style.overflow = '';
   }
-
-  // Stay unlocked for the rest of this browser tab session
-  if (sessionStorage.getItem('gallery-unlocked') === 'true') {
-    unlockGallery();
-  } else {
+    
     document.body.style.overflow = 'hidden';
     checkLockOnLoad();
     pinInput.focus();
-  }
+  
 
   /* ============================================================
      1. DATA
